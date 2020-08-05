@@ -37,14 +37,25 @@ Proffy is a project idealized by the Rocketseat's #2 Next Level Week.
 
 ## Installation :wrench:
 
-You can install the application using `npm installapp` or `yarn installapp` on the root dir.
+You can install the application using `npm install` or `yarn install` on the client and server dir.
 
 <br>
 
 ## Test :heavy_check_mark:
 
-To start the application interface just run `npm start` or `yarn start` on the client dir.
+To start the application interface just run `npm start` or `yarn start` on the client dir or `npm run startclient` / `yarn startclient` on the root dir.
 
+<br>
+
+To start the application server just run `npm run dev` or `yarn dev` on the server dir or `npm run startserver` / `yarn startserver` on the root dir.
+
+<br>
+
+Remember to run the migrations on the server dir using `npm run knex:migrate` or `yarn knex:migrate` (the DB used on this project is based on PostgreSQL).
+
+<br>
+
+<strong>Note: you need to create a .env file on the server directory based on the [example file](<https://github.com/leoronne/proffy/blob/master/server/.env%20(example).txt>).
 
 <br>
 
