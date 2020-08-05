@@ -1,0 +1,16 @@
+{
+  "name": "Proffy",
+  "version": "1.0.0",
+  "author": "Leonardo Ronne",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "npm install --prefix server",
+    "startclient": "cd ./client/ && npm start",
+    "installclient": "cd ./client/ && npm install",
+    "installserver": "cd ./server/ && npm install",
+    "startserver": "cd ./server/ && npm dev"
+  },
+  "engines": {
+    "node": "12.16.2"
+  }
+}
