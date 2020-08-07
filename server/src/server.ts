@@ -9,7 +9,7 @@ import AppError from '@shared/errors/AppError';
 
 import routes from './routes';
 
-require('dotenv/config');
+import 'dotenv/config'
 
 const app = express();
 

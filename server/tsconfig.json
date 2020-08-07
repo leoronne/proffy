@@ -1,7 +1,9 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
+    "declarationDir": "dist",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
@@ -17,7 +19,9 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "composite": true
   },
-  "exclude": ["docs/*", "coverage/*", "jest.config.js", "prettier.config.js", "ormconfig.ts"]
+  "include": ["src"],
+  "exclude": ["docs/*", "coverage/*", "jest.config.js", "prettier.config.js", "ormconfig.ts", "./dist"]
 }

@@ -34,3 +34,8 @@ firebase.json
 .env
 .env.production
 .env.development
+
+tsconfig.tsbuildinfo
+
+package-lock.js
+yarn.lock
