@@ -7,7 +7,7 @@
   "main": "server.ts",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "start": "ts-node src/server.ts",
+    "start": "ts-node -r tsconfig-paths/register src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:undo": "knex --knexfile knexfile.ts migrate:rollback",
     "knex:seed": "knex --knexfile knexfile.ts seed:run"
