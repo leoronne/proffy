@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { AiOutlineClear } from 'react-icons/ai';
+
 export const Container = styled.div`
   width: 100vw;
   #page-teacher-list {
@@ -9,6 +11,11 @@ export const Container = styled.div`
 
   #search-teachers {
     margin-top: 3.2rem;
+    position: relative;
+
+    label {
+      color: var(--color-text-in-primary);
+    }
   }
 
   @media (min-width: 700px) {
@@ -26,38 +33,30 @@ export const Container = styled.div`
   }
 `;
 
-export const InputBlock = styled.div`
-  position: relative;
-  transition: 0.7s ease;
-  margin-top: 1.4rem;
+export const Content = styled.div`
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-  label {
-    color: var(--color-text-in-primary);
-    font-size: 1.4rem;
+export const ClearIcon = styled(AiOutlineClear)`
+  width: 25px;
+  cursor: pointer;
+  color: var(--color-text-in-primary);
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: -1rem;
+  transition: var(--filter-transition);
+
+  &:hover {
+    transition: var(--filter-transition);
+    filter: var(--hover-effect);
   }
-
-  input {
-    width: 100%;
-    height: 5.6rem;
-    margin-top: 0.8rem;
-    border-radius: 0.8rem;
-    background: var(--color-input-background);
-    border: 1px solid var(--color-line-in-white);
-    outline: 0;
-    padding: 0 1.6rem;
-    font: 1.6rem Poppins;
-    transition: 0.7s ease;
-  }
-
-  &:focus-within::after {
-    transition: 0.7s ease;
-    width: calc(100% -3.2rem);
-    height: 2px;
-    content: '';
-    background: var(--color-primary-light);
-    position: absolute;
-    left: 1.6rem;
-    right: 1.6rem;
-    bottom: 0;
+  
+  @media (min-width: 700px) {
+    margin-top: 1.4rem;
   }
 `;

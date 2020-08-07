@@ -26,9 +26,9 @@ export default {
   },
   index: {
     [Segments.QUERY]: Joi.object().keys({
-      week_day: Joi.number().required().error(new Error('Week Day is a required field!')),
-      subject: Joi.string().required().error(new Error('Subject is a required field!')),
-      time: Joi.string().required().error(new Error('Time is a required field!')),
+      week_day: Joi.number().error(new Error('Invalid Week Day!')),
+      subject: Joi.string().error(new Error('Invalid Subject!')),
+      time: Joi.string().error(new Error('Invalid Time!')),
     }),
   },
 };

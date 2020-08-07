@@ -55,6 +55,10 @@ export default createGlobalStyle`
     justify-content: center;
   }
 
+  body {
+    background-color: var(--color-background);
+  }
+
   body, button, input, textarea {
     outline: 0;
     font-family: 'Poppins', 'Roboto', 'Archivo', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -71,16 +75,52 @@ export default createGlobalStyle`
     transition: var(--filter-transition);
     filter: var(--hover-effect);
   }
-  input {
+
+  input, textarea {
     border: 1px solid transparent !important;
-    transition: 0.7s !important;
+    transition: 0.9s ease-in-out;
+  }
+  
+  textarea:focus {
+    outline: none !important;
+    border: 1px solid var(--color-primary) !important;
+    transition: 0.9s ease-in-out;
+    box-shadow: 0px 0px 1px var(--color-primary);
+  }
+
+  
+  .react-tel-input .form-control:focus {
+    outline: none !important;
+    border: 1px solid var(--color-primary) !important;
+    transition: 0.9s ease-in-out;
+    box-shadow: 0px 0px 1px var(--color-primary);
   }
   
   input:focus {
     outline: none !important;
     border: 1px solid var(--color-primary) !important;
-    transition: 0.7s !important;
+    transition: 0.9s ease-in-out;
     box-shadow: 0px 0px 1px var(--color-primary);
+  }
+
+  button {
+    border: 0;
+    border-radius: 0.8rem;
+  }
+
+  button:enabled{
+    cursor: pointer;
+    transition: var(--filter-transition);
+  }
+
+  button:disabled{
+    cursor: not-allowed;
+    background-color: var(--color-text-complement);
+  }
+
+  button:enabled:hover{
+    transition: var(--filter-transition);
+    filter: var(--hover-effect);
   }
 
   ::-webkit-scrollbar {
@@ -105,6 +145,19 @@ export default createGlobalStyle`
   .container {
     width: 90vw;
     max-width: 700px;
+  }
+
+  .error {
+    border: 1px solid #FF6565 !important;
+  }
+
+  .error-message {
+    color: #FF6565;
+    padding: 1px 2px;
+    height: 1em;
+    position: absolute;
+    font-size: 12px;
+    margin-top: 0px;
   }
 
   @media (min-width: 700px) {

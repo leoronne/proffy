@@ -1,172 +1,123 @@
 import styled from 'styled-components';
 
-import { ReactComponent as Logo } from '~/assets/svg/logo.svg';
-import { ReactComponent as Landing } from '~/assets/svg/landing.svg';
-import { ReactComponent as Study } from '~/assets/svg/study.svg';
-import { ReactComponent as Class } from '~/assets/svg/give-classes.svg';
-import { ReactComponent as PurpleHeart } from '~/assets/svg/purple-heart.svg';
+import { ReactComponent as Warning } from '~/assets/svg/warning.svg';
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
-  overflow: auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--color-text-in-primary);
-  background: var(--color-primary);
-
-  .total-connections {
-    font-size: 1.4rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: total;
+  #page-teacher-form {
+    height: 100vh;
+    width: 100%;
   }
 
-  @media (min-width: 1100px) {
-    #page-landing-content {
-      max-width: 1100px;
-
-      display: grid;
-      grid-template-rows: 350px 1fr;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-areas:
-        'logo hero hero'
-        'buttons buttons total';
-    }
-
-    .total-connections {
-      justify-self: end;
+  @media (min-width: 700px) {
+    #page-teacher-form {
+      max-width: 100%;
     }
   }
 `;
 
-export const Wrapper = styled.div`
-  grid-area: logo;
-  text-align: center;
-  margin-bottom: 3.2rem;
-  align-self: center;
-
-  h2 {
-    font-weight: 500;
-    font-size: 2.4rem;
-    line-height: 4.6rem;
-    margin-top: 0.8rem;
-  }
-
-  @media (min-width: 1100px) {
-    margin: 0;
-    text-align: left;
-
-    h2 {
-      text-align: initial;
-      font-size: 2.8rem;
-    }
-  }
-`;
-
-export const LogoIcon = styled(Logo)`
-  height: 10rem;
+export const Main = styled.main`
+  background-color: var(--color-box-base);
   width: 90%;
+  max-width: 74rem;
+  border-radius: 0.8rem;
+  margin: -4rem auto 4rem;
+  padding-top: 6.4rem;
+  overflow: hidden;
 
-  @media (min-width: 1100px) {
-    height: 100%;
+  label {
+    color: var(--color-text-complement);
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0 2.4rem;
+
+    legend {
+      font: 700 2.1rem 'Poppins';
+      color: var(--color-text-title);
+      margin-bottom: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--color-line-in-white);
+
+      button {
+        background-color: transparent;
+        color: var(--color-primary);
+        font: 600 1.6rem 'Poppins';
+      }
+    }
+  }
+
+  fieldset + fieldset {
+    margin-top: 5.4rem;
+  }
+
+  @media (min-width: 700px) {
+    fieldset {
+      padding: 0 6.4rem;
+    }
   }
 `;
 
-export const LandingImg = styled(Landing)`
-  @media (max-width: 400px) {
-    display: none;
-  }
-  @media (max-height: 710px) {
-    display: none;
-  }
-
-  width: 100%;
-  grid-area: hero;
-
-  @media (min-width: 1100px) {
-    justify-self: end;
+export const ScheduleItem = styled.div`
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: 1.6rem;
   }
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3.2rem 0;
-  grid-area: buttons;
+export const FormFooter = styled.footer`
+  padding: 3rem 2.4rem;
+  background: var(--color-box-footer);
+  border-top: 1px solid var(--color-line-in-white);
+  margin-top: 6.4rem;
 
-  a:first-child {
-    margin-right: 1.6rem;
-  }
-
-  a {
-    width: 30rem;
-    height: 8.4rem;
-    border-radius: 0.8rem;
-    font: 600 2rem 'Poppins';
-
+  p {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: var(--color-text-complement);
+  }
 
-    text-decoration: none;
+  button {
+    width: 100%;
+    height: 5.6rem;
+    background-color: var(--color-secondary);
     color: var(--color-button-text);
+    font: 700 1.6rem 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 3.2rem;
   }
 
-  a.study {
-    background: var(--color-primary-lighter);
-  }
+  @media (min-width: 700px) {
+    padding: 4rem 6.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  a.study:hover {
-    background: var(--color-primary-lighter);
-  }
-
-  a.give-classes {
-    background: var(--color-secondary);
-  }
-
-  a.give-classes:hover {
-    background: var(--color-secondary);
-  }
-
-  @media (max-width: 400px) {
-    a {
-      font: 600 1.6rem 'Poppins' !important;
+    p {
+      justify-content: space-between;
     }
-  }
 
-  @media (min-width: 1100px) {
-    justify-content: flex-start;
-    a {
-      font-size: 2.4re;
+    button {
+      width: 20rem;
+      margin-top: 0;
     }
   }
 `;
 
-export const StudyIcon = styled(Study)`
-  width: 4rem;
-  margin-right: 2.4rem;
-
-  @media (max-width: 400px) {
-    margin-right: 0.6rem;
-  }
-`;
-
-export const ClassIcon = styled(Class)`
-  width: 4rem;
-  margin-right: 2.4rem;
-
-  @media (max-width: 400px) {
-    margin-right: 0.6rem;
-  }
-`;
-
-export const PurpleHeartIcon = styled(PurpleHeart)`
-  margin-left: 0.8rem;
+export const WarningIcon = styled(Warning)`
+  width: auto;
+  margin-right: 2rem;
 `;

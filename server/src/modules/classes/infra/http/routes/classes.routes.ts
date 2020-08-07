@@ -6,6 +6,9 @@ import ClassesValidator from '@modules/classes/infra/http/validator/ClassesValid
 
 const classesRouter = express.Router();
 
-classesRouter.post('/', celebrate(ClassesValidator.store), ClassesController.store).get('/', celebrate(ClassesValidator.index), ClassesController.index);
+classesRouter
+  .post('/', celebrate(ClassesValidator.store), ClassesController.store)
+  .get('/', celebrate(ClassesValidator.index), ClassesController.index)
+  .get('/subjects', ClassesController.getSubjects);
 
 export default classesRouter;

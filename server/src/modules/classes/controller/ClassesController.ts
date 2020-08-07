@@ -4,6 +4,7 @@ import AppError from '@shared/errors/AppError';
 
 import CreateClassService from '@modules/classes/services/CreateClassService';
 import FindClassesService from '@modules/classes/services/FindClassesService';
+import ClassesRepository from '@modules/classes/repositories/ClassesRepository';
 
 class ClassesController {
   async store(req: Request, res: Response) {
@@ -25,7 +26,19 @@ class ClassesController {
 
       const classes = await findClass.execute(week_day as string, subject as string, time as string);
 
-      return res.status(200).json(classes);
+      return res.status(200).json({classes});
+    } catch (err) {
+      throw new AppError(err.message, 500);
+    }
+  }
+
+  async getSubjects(req: Request, res: Response) {
+    try {
+      const findClass = new ClassesRepository();
+
+      const subjects = await findClass.getSubjects();
+
+      return res.status(200).json({subjects});
     } catch (err) {
       throw new AppError(err.message, 500);
     }

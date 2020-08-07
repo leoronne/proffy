@@ -32,3 +32,8 @@ firebase.json
 /images
 
 .env
+.env.production
+.env.development
+
+package-lock.json
+yarn.lock

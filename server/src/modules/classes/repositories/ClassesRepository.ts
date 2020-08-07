@@ -12,10 +12,15 @@ interface ScheduleItem {
 }
 
 interface ClassesList {
-  id: number;
-  subject: string;
-  cost: number;
   user_id: number;
+  name: string;
+  email: string;
+  whatsapp: string;
+  avatar: string;
+  bio: string;
+  class_id: number;
+  subject: string;
+  cost: string;
 }
 
 class ClassesRepository {
@@ -56,13 +61,27 @@ class ClassesRepository {
           this.select('class_schedule.*')
             .from('class_schedule')
             .whereRaw('class_schedule.class_id = classes_vw.class_id')
-            .whereRaw('class_schedule.week_day = ??', [week_day])
-            .whereRaw('class_schedule.from <= ??', [timeMin])
-            .whereRaw('class_schedule.to > ??', [timeMin]);
+            .whereRaw(`${!isNaN(week_day) ? 'class_schedule.week_day = ??' : `'${week_day}'='??'`}`, [week_day])
+            .whereRaw(`${timeMin > 0 ? 'class_schedule.from <= ??' : `${timeMin}=??`}`, [timeMin])
+            .whereRaw(`${timeMin > 0 ? 'class_schedule.to > ??' : `${timeMin}=??`}`, [timeMin]);
         })
-        .where('classes_vw.subject', '=', subject);
+        .where('classes_vw.subject', 'like', `%${subject}%`);
 
       return classes;
+    } catch (err) {
+      throw new AppError(err.message, 500);
+    }
+  }
+
+  public async getSubjects(): Promise<Array<object>> {
+    try {
+      const classes = await knex('classes').select('subject').distinct();
+
+      const subArrat = classes.map(i => {
+        return { value: i.subject, label: i.subject };
+      });
+
+      return subArrat;
     } catch (err) {
       throw new AppError(err.message, 500);
     }

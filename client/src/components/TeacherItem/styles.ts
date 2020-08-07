@@ -1,10 +1,18 @@
 import styled from 'styled-components';
-
-import { ReactComponent as WhatsApp } from '~/assets/svg/whatsapp.svg';
+import { IoLogoWhatsapp } from 'react-icons/io';
 
 export const TeacherMain = styled.main`
   margin: 3.2rem auto;
   width: 90%;
+
+  .no-data {
+    margin-top: 2.4rem;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   article {
     background: var(--color-box-base);
@@ -113,7 +121,7 @@ export const TeacherMain = styled.main`
   }
 `;
 
-export const WhatsAppIcon = styled(WhatsApp)`
+export const WhatsAppIcon = styled(IoLogoWhatsapp)`
   height: 1.6rem;
   width: auto;
 
