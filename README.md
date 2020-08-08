@@ -11,7 +11,7 @@
 
 <p align="center">	
    <a href="https://www.linkedin.com/in/leoronne/">
-      <img alt="Rafael Goulart" src="https://img.shields.io/badge/-leoronne-8257E5?style=flat&logo=Linkedin&logoColor=white" />
+      <img alt="Leonardo Ronne" src="https://img.shields.io/badge/-leoronne-8257E5?style=flat&logo=Linkedin&logoColor=white" />
    </a>
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoronne/proffy?color=774DD6">
 
@@ -25,13 +25,10 @@
   <a href="https://github.com/leoronne/proffy/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/leoronne/proffy?color=8257E5&logo=github">
   </a>
-  
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Proffy&uri=https%3A%2F%2Fgithub.com%2Fleoronne%2Fproffy%2Fblob%2Fmaster%2Fserver%2Fproffy-server.json)
+  <br>
+  <br>
+  <a href="https://insomnia.rest/run/?label=Proffy&uri=https%3A%2F%2Fgithub.com%2Fleoronne%2Fproffy%2Fblob%2Fmaster%2Fserver%2Fproffy-server.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
-</p>
-
-<p align="center">
-  
 </p>
 
 <br>
@@ -41,6 +38,7 @@
   <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installation-wrench">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#test-heavy_check_mark">Test</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#issues-bug">Issues</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contributing-">Contributing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license-memo">License</a>
 </p>
@@ -49,7 +47,7 @@
 
 ## Project :star2:
 
-Proffy is a project idealized by the Rocketseat's #2 Next Level Week.
+Project made to connect teachers to students, idealized by @Rocketseat's Next Level Week #2.
 
 <br>
 
@@ -65,13 +63,17 @@ Proffy is a project idealized by the Rocketseat's #2 Next Level Week.
 
 ## Installation :wrench:
 
-You can install the application using `npm install` or `yarn install` on the client and server dir.
+You can install the application using `npm install` or `yarn install` on the client, server and mobile dir.
 
 <br>
 
 ## Test :heavy_check_mark:
 
 To start the application interface just run `npm start` or `yarn start` on the client dir or `npm run startclient` / `yarn startclient` on the root dir.
+
+<br>
+
+To start the application mobile bundle just run `npm start` or `yarn start` on the mobile dir or `npm run startmobile` / `yarn startmobile` on the root dir.
 
 <br>
 
@@ -84,6 +86,12 @@ Remember to run the migrations on the server dir using `npm run knex:migrate` or
 <br>
 
 <strong>Note: you need to create a .env file on the server directory based on the [example file](<https://github.com/leoronne/proffy/blob/master/server/.env%20(example).txt>).
+
+<br>
+
+# Issues :bug:
+
+Feel free to **file a new issue**, if you find any, with a respective title and description on the the [Proffy](https://github.com/leoronne/proffy/issues) repository.
 
 <br>
 
