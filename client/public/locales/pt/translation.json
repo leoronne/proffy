@@ -50,8 +50,20 @@
   "userCreated": "Registro bem-sucedido, obrigado!",
   "noSubjects": "Nenhuma matéria encontrada",
   "noData": "Nos desculpe, não encontramos nenhuma aula",
+  "croppicture": "Cortar Imagem",
+  "crop": "Cortar",
+  "imageinvalid": "Imagem inválida",
   "price": "Preço/Hora",
   "priceChar": "R$",
   "getInTouch": "Entrar em contato",
-  "whatsMessage": "Olá Proffy %name%, estou interessado na sua aula sobre %subject%!"
+  "whatsMessage": "Olá Proffy %name%, estou interessado na sua aula sobre %subject%!",
+  "selectFile": "Escolher arquivo",
+  "return": "Voltar",
+  "clean": "Limpar filtros",
+  "filter": "Filtrar por",
+  "with": "com",
+  "want": "Você quer",
+  "selectAvatar": "Selecione uma foto de perfil (.png, .jpg ou .jpeg)",
+  "crop1x1": "Deixe sua foto de perfil na escala 1x1",
+  "saveForm": "Salvar dados"
 }

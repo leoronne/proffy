@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaTrash } from 'react-icons/fa';
 
 import { ReactComponent as Warning } from '~/assets/svg/warning.svg';
 
@@ -120,4 +121,55 @@ export const FormFooter = styled.footer`
 export const WarningIcon = styled(Warning)`
   width: auto;
   margin-right: 2rem;
+`;
+
+export const InputGrid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 25px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const InputColumn = styled.div`
+  width: 100%;
+`;
+
+export const AvatarContainer = styled.div`
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.9rem;
+  height: 100%;
+  text-align: center;
+  position: relative;
+
+  label {
+    font-size: 1.4rem;
+  }
+
+  .avatar {
+    max-width: 50%;
+    min-width: 200px;
+    border-radius: 50%;
+    margin-top: 15px;
+  }
+`;
+
+export const TrashIcon = styled(FaTrash)`
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0;
+  left: 48%;
+  color: var(--color-primary-light);
+  cursor: pointer;
+  transition: var(--filter-transition);
+
+  &:hover {
+    transition: var(--filter-transition);
+    filter: var(--hover-effect);
+  }
 `;

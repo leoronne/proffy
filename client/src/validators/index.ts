@@ -10,11 +10,10 @@ export default function Schemas(schema: string): Yup.ObjectSchema | undefined {
     name: Yup.string().trim(t('validname')).required(t('requiredename')),
     whatsapp: Yup.string()
       .test('WhatsApp', t('validPhone'), function (value) {
-        if (value && !isValidPhoneNumber(`+${value}`)) return false;
+        if (value && !isValidPhoneNumber(value.includes('+') ? value : `+${value}`)) return false;
         return true;
       })
       .required(t('requiredPhone')),
-    avatar: Yup.string().trim(t('validAvatar')).required(t('requiredAvatar')),
     bio: Yup.string().trim(t('validbio')).required(t('requiredbio')),
     cost: Yup.number()
       .test('cost', t('mincost'), function (value) {

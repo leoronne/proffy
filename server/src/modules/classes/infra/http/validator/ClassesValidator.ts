@@ -7,7 +7,6 @@ export default {
       email: Joi.string().required().email().error(new Error('Invalid email!')),
       whatsapp: Joi.string().required().error(new Error('Whats App is a required field!')),
       bio: Joi.string().required().error(new Error('Bio is a required field!')),
-      avatar: Joi.string().required().error(new Error('Avatar is a required field!')),
       subject: Joi.string().required().error(new Error('Subject is a required field!')),
       cost: Joi.number().required().error(new Error('Cost is a required field!')),
       schedule: Joi.array()

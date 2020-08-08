@@ -41,7 +41,7 @@ export const HeaderContent = styled.div`
   margin: 3.2rem auto;
 
   strong {
-    font: 700 3.6rem Poppins;
+    font: 700 3.0rem Poppins;
     line-height: 4.2rem;
     color: var(--color-title-in-primary);
   }

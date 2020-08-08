@@ -50,8 +50,20 @@
   "userCreated": "Registration successfull, thank you!",
   "noSubjects": "No subjects found",
   "noData": "Sorry, we didn't find any classes",
+  "croppicture": "Crop Picture",
+  "crop": "Crop",
+  "imageinvalid": "Invalid image",
   "price": "Price/Hour",
   "priceChar": "$",
   "getInTouch": "Get in touch",
-  "whatsMessage": "Hello Proffy %name%, I'm interested in your class about %subject%!"
+  "whatsMessage": "Hello Proffy %name%, I'm interested in your class about %subject%!",
+  "selectFile": "Select a file",
+  "return": "Return",
+  "clean": "Clean filters",
+  "filter": "Filter by",
+  "with": "with",
+  "want": "Do you want to",
+  "selectAvatar": "Select an avatar file (.png, .jpg or .jpeg)",
+  "crop1x1": "Crop the avatar on scale 1:1",
+  "saveForm": "Save info"
 }

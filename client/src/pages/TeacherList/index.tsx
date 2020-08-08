@@ -14,6 +14,8 @@ import notify from '../../services/toast';
 
 const TeacherList: React.FC = () => {
   const { t } = useTranslation();
+  document.title = `Proffy | ${t('study')}`;
+
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState('');
   const [weekDay, setWeekDay] = useState('');
@@ -38,9 +40,7 @@ const TeacherList: React.FC = () => {
         setSubjects(data.subjects);
       } catch (err) {
         notify(err?.response?.data?.message ? err.response.data.message : err.message, 'error');
-      } finally {
-        // setLoading(false);
-      }
+      } 
     }
     loadSubjects();
   }, []);
@@ -73,13 +73,7 @@ const TeacherList: React.FC = () => {
             {subjects && subjects.length === 0 ? (
               <Input id="subject" type="text" label={t('subject')} handleChange={() => console.log(t('noSubjects'))} value={noSubjects} disabled />
             ) : (
-              <Select
-                id="subject"
-                label={t('subject')}
-                value={subject}
-                handleChange={(e: { target: { value: React.SetStateAction<string> } }) => setSubject(e.target.value)}
-                options={subjects}
-              />
+              <Select id="subject" label={t('subject')} value={subject} handleChange={(e: { target: { value: React.SetStateAction<string> } }) => setSubject(e.target.value)} options={subjects} />
             )}
 
             <Select
@@ -98,14 +92,8 @@ const TeacherList: React.FC = () => {
               ]}
             />
 
-            <Input
-              id="time"
-              type="time"
-              label={t('time')}
-              handleChange={(e: { target: { value: React.SetStateAction<string> } }) => setTime(e.target.value)}
-              value={time}
-            />
-            <ClearIcon onClick={handleResetFilters} />
+            <Input id="time" type="time" label={t('time')} handleChange={(e: { target: { value: React.SetStateAction<string> } }) => setTime(e.target.value)} value={time} />
+            <ClearIcon onClick={handleResetFilters} data-tip={t('clean')}/>
           </form>
         </HeaderContainer>
 

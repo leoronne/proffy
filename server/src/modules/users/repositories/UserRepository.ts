@@ -32,9 +32,20 @@ class UserRepository {
     }
   }
 
-  public async create(email: string, name: string, whatsapp: string, avatar: string, bio: string, trx: Knex.Transaction): Promise<number> {
+  public async updateAvatar(id: number, hashedFilename: string, trx: Knex.Transaction): Promise<void> {
     try {
-      const createdUser = await trx('users').insert({ email, name, whatsapp, avatar, bio }, 'id');
+      return await trx('users').where('id', id).update({
+        avatar: hashedFilename,
+      });
+    } catch (err) {
+      await trx.rollback();
+      throw new AppError(err.message, 500);
+    }
+  }
+
+  public async create(email: string, name: string, whatsapp: string, bio: string, trx: Knex.Transaction): Promise<number> {
+    try {
+      const createdUser = await trx('users').insert({ email, name, whatsapp, bio }, 'id');
       const user_id = createdUser[0];
 
       return user_id;

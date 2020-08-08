@@ -13,8 +13,8 @@ function App() {
     <>
       <Router>
         <ToastContainer />
-          <Routes />
         <GlobalStyles />
+        <Routes />
       </Router>
     </>
   );

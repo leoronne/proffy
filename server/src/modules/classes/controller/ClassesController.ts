@@ -11,9 +11,9 @@ class ClassesController {
     try {
       const createClass = new CreateClassService();
 
-      await createClass.execute(req.body);
+      const user_id = await createClass.execute(req.body);
 
-      return res.status(201).json();
+      return res.status(201).json({user_id});
     } catch (err) {
       throw new AppError(err.message, 500);
     }

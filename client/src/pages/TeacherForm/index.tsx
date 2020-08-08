@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
@@ -8,12 +8,15 @@ import HeaderContainer from '../../components/Header';
 import Input from '../../components/Input';
 import PhoneInput from '../../components/PhoneInput';
 import TextArea from '../../components/TextArea';
-
-import { Container, Main, FormFooter, WarningIcon, ScheduleItem } from './styles';
 import Select from '../../components/Select';
+import Dropzone from '../../components/Dropzone';
+
 import notify from '../../services/toast';
-import Schemas from '../../validators';
 import api from '../../services/api';
+
+import Schemas from '../../validators';
+
+import { Container, Main, FormFooter, WarningIcon, ScheduleItem, InputGrid, InputColumn, AvatarContainer, TrashIcon } from './styles';
 
 interface Schedule {
   week_day: number | string;
@@ -25,7 +28,6 @@ interface FormValues {
   email: string;
   name: string;
   whatsapp: string;
-  avatar: string;
   bio: string;
   cost: number | string;
   subject: string;
@@ -33,13 +35,15 @@ interface FormValues {
 }
 
 const TeacherForm: React.FC = () => {
+  const { t } = useTranslation();
+  document.title = `Proffy | ${t('class')}`;
+
   const build = process.env.NODE_ENV;
 
   const initialValues: FormValues = {
     email: build === 'development' ? 'leoronne@gmail.com' : '',
     name: build === 'development' ? 'Leonardo Ronne' : '',
     whatsapp: build === 'development' ? '5516981079256' : '',
-    avatar: build === 'development' ? 'https://avatars1.githubusercontent.com/u/47757685?s=460&v=4' : '',
     bio: build === 'development' ? 'Product Manager at @visoradl. Passionate about everything that involves technology and programming.' : '',
     cost: build === 'development' ? 15 : '',
     subject: build === 'development' ? 'ReactJS' : '',
@@ -53,15 +57,32 @@ const TeacherForm: React.FC = () => {
         : [],
   };
 
-  const { t } = useTranslation();
-  const history = useHistory();
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState<File>();
+  const [fileURL, setFileURL] = useState('');
+
+  const history = useHistory();
+
+  const handleDeleteAvatar = () => {
+    setFileURL('');
+    setImage(undefined);
+  };
 
   const handleCreate = async (values: FormValues) => {
     try {
       setLoading(true);
       values.whatsapp = `+${values.whatsapp}`;
-      await api.post('/classes', values);
+      const response = await api.post('/classes', values);
+
+      const { user_id } = response.data;
+
+      if (image) {
+        const data = new FormData();
+        data.append('avatar', image);
+
+        await api.patch(`user/avatar/${user_id}`, data);
+      }
+
       notify(t('userCreated'), 'success');
       setTimeout(() => {
         history.push('/');
@@ -85,6 +106,10 @@ const TeacherForm: React.FC = () => {
     return newArray;
   };
 
+  useEffect(() => {
+    if (image) setFileURL(URL.createObjectURL(image));
+  }, [image]);
+
   return (
     <Container>
       <div className="container" id="page-teacher-form">
@@ -92,9 +117,8 @@ const TeacherForm: React.FC = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={Schemas('TeacherForm')}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
+          onSubmit={(values: FormValues, { setSubmitting, resetForm }) => {
             setSubmitting(true);
-            console.log('foi');
             handleCreate(values);
             setSubmitting(false);
           }}
@@ -106,29 +130,48 @@ const TeacherForm: React.FC = () => {
                 <fieldset>
                   <legend>{t('teacherData')}</legend>
 
-                  <Input
-                    id="email"
-                    type="email"
-                    label={t('email')}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    value={values.email}
-                    errors={errors.email}
-                    touched={touched.email}
-                    placeholder={t('email')}
-                  />
+                  <InputGrid>
+                    <InputColumn>
+                      <Input
+                        id="email"
+                        type="email"
+                        label={t('email')}
+                        handleBlur={handleBlur}
+                        handleChange={handleChange}
+                        value={values.email}
+                        errors={errors.email}
+                        touched={touched.email}
+                        placeholder={t('email')}
+                      />
 
-                  <Input
-                    id="name"
-                    type="text"
-                    label={t('name')}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    value={values.name}
-                    errors={errors.name}
-                    touched={touched.name}
-                    placeholder={t('name')}
-                  />
+                      <Input
+                        id="name"
+                        type="text"
+                        label={t('name')}
+                        handleBlur={handleBlur}
+                        handleChange={handleChange}
+                        value={values.name}
+                        errors={errors.name}
+                        touched={touched.name}
+                        placeholder={t('name')}
+                      />
+                    </InputColumn>
+                    <InputColumn>
+                      <AvatarContainer>
+                        <label>{t('avatar')}</label>
+                        <br />
+                        {fileURL ? (
+                          <>
+                            <img src={fileURL} alt={t('avatar')} className="avatar" />
+                            <br />
+                            <TrashIcon onClick={handleDeleteAvatar} />
+                          </>
+                        ) : (
+                          <Dropzone onFileUploaded={setImage} />
+                        )}
+                      </AvatarContainer>
+                    </InputColumn>
+                  </InputGrid>
 
                   <PhoneInput
                     id="whatsapp"
@@ -142,28 +185,7 @@ const TeacherForm: React.FC = () => {
                     placeholder={t('phone')}
                   />
 
-                  <Input
-                    id="avatar"
-                    type="text"
-                    label={t('avatar')}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    value={values.avatar}
-                    errors={errors.avatar}
-                    touched={touched.avatar}
-                    placeholder={t('avatar')}
-                  />
-
-                  <TextArea
-                    id="bio"
-                    label={t('bio')}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    value={values.bio}
-                    errors={errors.bio}
-                    touched={touched.bio}
-                    placeholder={t('bio')}
-                  />
+                  <TextArea id="bio" label={t('bio')} handleBlur={handleBlur} handleChange={handleChange} value={values.bio} errors={errors.bio} touched={touched.bio} placeholder={t('bio')} />
                 </fieldset>
 
                 <fieldset>
@@ -252,9 +274,7 @@ const TeacherForm: React.FC = () => {
                           type="time"
                           label={t('from')}
                           handleBlur={handleBlur}
-                          handleChange={(e: { target: { value: string } }) =>
-                            setFieldValue('schedule', setScheduleItemValue(index, 'from', e.target.value, values.schedule))
-                          }
+                          handleChange={(e: { target: { value: string } }) => setFieldValue('schedule', setScheduleItemValue(index, 'from', e.target.value, values.schedule))}
                           value={item.from}
                           required
                         />
@@ -264,9 +284,7 @@ const TeacherForm: React.FC = () => {
                           type="time"
                           label={t('to')}
                           handleBlur={handleBlur}
-                          handleChange={(e: { target: { value: string } }) =>
-                            setFieldValue('schedule', setScheduleItemValue(index, 'to', e.target.value, values.schedule))
-                          }
+                          handleChange={(e: { target: { value: string } }) => setFieldValue('schedule', setScheduleItemValue(index, 'to', e.target.value, values.schedule))}
                           value={item.to}
                           required
                         />
@@ -284,7 +302,7 @@ const TeacherForm: React.FC = () => {
                     {t('inputWarning')}
                   </p>
 
-                  <button type={loading ? 'button' : 'submit'} disabled={loading}>
+                  <button type={loading ? 'button' : 'submit'} data-tip={t('saveForm')} disabled={loading}>
                     {loading ? <DotLoader size={25} color="#efefef" /> : t('save')}
                   </button>
                 </FormFooter>

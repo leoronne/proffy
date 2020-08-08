@@ -13,6 +13,7 @@ export const InputBlock = styled.div`
     width: 100%;
     height: 16rem;
     min-height: 9.2rem;
+    max-height: 20rem;
     margin-top: 0.8rem;
     border-radius: 0.8rem;
     background: var(--color-input-background);

@@ -39,3 +39,7 @@ tsconfig.tsbuildinfo
 
 package-lock.js
 yarn.lock
+
+server/!temp/.gitkeep
+server/temp/*.*
+server/temp/uploads/*.*

@@ -1,6 +1,9 @@
 /* eslint-disable func-names */
+import { APP_API_URL, AWS_S3_BUCKET_URL } from '@shared/utils/environment';
 import Knex from 'knex';
 import knex from '@infra/database/connection';
+
+import storageConfig from '@config/upload';
 
 import AppError from '@shared/errors/AppError';
 import ToMinutes from '@shared/utils/convertHour';
@@ -12,11 +15,11 @@ interface ScheduleItem {
 }
 
 interface ClassesList {
-  user_id: number;
   name: string;
   email: string;
   whatsapp: string;
   avatar: string;
+  avatar_url: string;
   bio: string;
   class_id: number;
   subject: string;
@@ -67,7 +70,13 @@ class ClassesRepository {
         })
         .where('classes_vw.subject', 'like', `%${subject}%`);
 
-      return classes;
+      const newClass = classes.map(i => {
+        return {
+          ...i,
+          avatar_url: storageConfig.driver === 'disk' ? `${APP_API_URL}/files/${i.avatar}` : `${AWS_S3_BUCKET_URL}${i.avatar}`,
+        };
+      });
+      return newClass;
     } catch (err) {
       throw new AppError(err.message, 500);
     }

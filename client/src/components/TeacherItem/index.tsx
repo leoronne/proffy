@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import ReactTooltip from 'react-tooltip';
 
 import { TeacherMain, WhatsAppIcon } from './styles';
 import api from '../../services/api';
@@ -11,6 +12,7 @@ interface ClassesList {
   email: string;
   whatsapp: string;
   avatar: string;
+  avatar_url: string;
   bio: string;
   class_id: number;
   subject: string;
@@ -41,7 +43,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ data }) => {
           return (
             <article key={item.user_id}>
               <header>
-                <img src={item.avatar} alt={item.name} />
+                <img src={item.avatar_url} alt={item.name} />
                 <div>
                   <strong>{item.name}</strong>
                   <span>{item.subject}</span>
@@ -53,7 +55,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ data }) => {
                 <p>
                   {t('price')}:<strong>{`${t('priceChar')} ${item.cost}`}</strong>
                 </p>
-                <button type="button" onClick={() => handleConnection(item.whatsapp, item.user_id, item.name, item.subject)}>
+                <button type="button" data-tip={`${t('getInTouch')} ${t('with')} ${item.name}`} onClick={() => handleConnection(item.whatsapp, item.user_id, item.name, item.subject)}>
                   <WhatsAppIcon />
                   {t('getInTouch')}
                 </button>
@@ -64,6 +66,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ data }) => {
       ) : (
         <div className="no-data">{t('noData')}</div>
       )}
+      <ReactTooltip type="dark" effect="solid" place="bottom" />
     </TeacherMain>
   );
 };

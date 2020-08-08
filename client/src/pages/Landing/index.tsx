@@ -39,11 +39,11 @@ const Landing: React.FC = () => {
         </Wrapper>
         <LandingImg />
         <ButtonContainer>
-          <Link to="/study" className="study">
+          <Link to="/study" className="study" data-tip={`${t('want')} ${t('study')}?`}>
             <StudyIcon />
             {t('study')}
           </Link>
-          <Link to="/classes" className="give-classes">
+          <Link to="/classes" className="give-classes" data-tip={`${t('want')} ${t('class')}?`}>
             <ClassIcon />
             {t('class')}
           </Link>
@@ -62,7 +62,7 @@ const Landing: React.FC = () => {
           <PurpleHeartIcon />
         </span>
       </div>
-      <ReactTooltip type="dark" effect="solid" />
+      <ReactTooltip type="dark" effect="solid" place="bottom" />
     </Container>
   );
 };
