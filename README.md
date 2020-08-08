@@ -47,7 +47,7 @@
 
 ## Project :star2:
 
-Project made to connect teachers to students, idealized by @Rocketseat's Next Level Week #2.
+Project made to connect teachers to students, idealized by [Rocketseat](https://github.com/Rocketseat)'s Next Level Week #2.
 
 <br>
 
@@ -63,7 +63,18 @@ Project made to connect teachers to students, idealized by @Rocketseat's Next Le
 
 ## Installation :wrench:
 
-You can install the application using `npm install` or `yarn install` on the client, server and mobile dir.
+First, clone the repository using:
+
+<br>
+
+```bash
+# Clone Repository
+$ git clone https://github.com/leoronne/proffy.git
+```
+
+<br>
+
+Then uou can install the application using `npm install` or `yarn install` on the client, server and mobile dir.
 
 <br>
 
