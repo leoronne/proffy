@@ -8,6 +8,34 @@
 
 <br>
 
+
+<p align="center">	
+   <a href="https://www.linkedin.com/in/leoronne/">
+      <img alt="Rafael Goulart" src="https://img.shields.io/badge/-leoronne-8257E5?style=flat&logo=Linkedin&logoColor=white" />
+   </a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoronne/proffy?color=774DD6">
+
+  <a aria-label="Completed" href="https://nextlevelweek.com/episodios/omnistack/edicao/2">
+    <img src="https://img.shields.io/badge/Proffy-NLW 2.0-8257E5?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg=="></img>
+  </a>
+  <a href="https://github.com/leoronne/proffy/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/leoronne/proffy?color=774DD6">
+  </a> 
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-8257E5">
+  <a href="https://github.com/leoronne/proffy/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/leoronne/proffy?color=8257E5&logo=github">
+  </a>
+  
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Proffy&uri=https%3A%2F%2Fgithub.com%2Fleoronne%2Fproffy%2Fblob%2Fmaster%2Fserver%2Fproffy-server.json)
+
+</p>
+
+<p align="center">
+  
+</p>
+
+<br>
+
 <p align="center">
   <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
