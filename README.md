@@ -51,6 +51,10 @@ Project made to connect teachers to students, idealized by [Rocketseat](https://
 
 <br>
 
+Deployed [here](https://findproffy.web.app).
+
+<br>
+
 ## Techs :rocket:
 
 - [x] [ReactJS](https://reactjs.org);
