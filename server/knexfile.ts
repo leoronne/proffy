@@ -11,7 +11,7 @@ module.exports = {
       host: process.env.DB_HOST,
     },
     migrations: {
-      directory: path.resolve(__dirname, 'infra', 'database', 'migrations'),
+      directory: path.resolve(__dirname, 'src', 'infra', 'database', 'migrations'),
     },
     useNullAsDefault: true,
   },
@@ -25,7 +25,7 @@ module.exports = {
       host: process.env.DB_HOST,
     },
     migrations: {
-      directory: path.resolve(__dirname, 'infra', 'database', 'migrations'),
+      directory: path.resolve(__dirname, 'src', 'infra', 'database', 'migrations'),
     },
     useNullAsDefault: true,
   },

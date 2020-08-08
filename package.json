@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "npm install --prefix server",
     "startclient": "cd ./client/ && npm start",
+    "startmobile": "cd ./mobile/ && npm start",
     "installclient": "cd ./client/ && npm install",
     "installserver": "cd ./server/ && npm install",
     "startserver": "cd ./server/ && npm dev"
