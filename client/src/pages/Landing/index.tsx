@@ -10,6 +10,7 @@ import notify from '../../services/toast';
 
 const Landing: React.FC = () => {
   const { t } = useTranslation();
+  document.title = `Proffy`;
   const [loading, setLoading] = useState(false);
   const [connections, setConnections] = useState(0);
 
