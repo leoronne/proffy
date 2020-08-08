@@ -7,7 +7,6 @@ declare const _default: {
             email: import("@hapi/joi").StringSchema;
             whatsapp: import("@hapi/joi").StringSchema;
             bio: import("@hapi/joi").StringSchema;
-            avatar: import("@hapi/joi").StringSchema;
             subject: import("@hapi/joi").StringSchema;
             cost: import("@hapi/joi").NumberSchema;
             schedule: import("@hapi/joi").ArraySchema;

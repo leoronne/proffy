@@ -3,7 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable func-names */
+const environment_1 = require("@shared/utils/environment");
 const connection_1 = __importDefault(require("@infra/database/connection"));
+const upload_1 = __importDefault(require("@config/upload"));
 const AppError_1 = __importDefault(require("@shared/errors/AppError"));
 const convertHour_1 = __importDefault(require("@shared/utils/convertHour"));
 class ClassesRepository {
@@ -47,7 +50,10 @@ class ClassesRepository {
                     .whereRaw(`${timeMin > 0 ? 'class_schedule.to > ??' : `${timeMin}=??`}`, [timeMin]);
             })
                 .where('classes_vw.subject', 'like', `%${subject}%`);
-            return classes;
+            const newClass = classes.map(i => {
+                return Object.assign(Object.assign({}, i), { avatar_url: upload_1.default.driver === 'disk' ? `${environment_1.APP_API_URL}/files/${i.avatar}` : `${environment_1.AWS_S3_BUCKET_URL}${i.avatar}` });
+            });
+            return newClass;
         }
         catch (err) {
             throw new AppError_1.default(err.message, 500);

@@ -8,7 +8,6 @@ exports.default = {
             email: celebrate_1.Joi.string().required().email().error(new Error('Invalid email!')),
             whatsapp: celebrate_1.Joi.string().required().error(new Error('Whats App is a required field!')),
             bio: celebrate_1.Joi.string().required().error(new Error('Bio is a required field!')),
-            avatar: celebrate_1.Joi.string().required().error(new Error('Avatar is a required field!')),
             subject: celebrate_1.Joi.string().required().error(new Error('Subject is a required field!')),
             cost: celebrate_1.Joi.number().required().error(new Error('Cost is a required field!')),
             schedule: celebrate_1.Joi.array()

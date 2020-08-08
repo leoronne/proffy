@@ -24,9 +24,20 @@ class UserRepository {
             throw new AppError_1.default(err.message, 500);
         }
     }
-    async create(email, name, whatsapp, avatar, bio, trx) {
+    async updateAvatar(id, hashedFilename, trx) {
         try {
-            const createdUser = await trx('users').insert({ email, name, whatsapp, avatar, bio }, 'id');
+            return await trx('users').where('id', id).update({
+                avatar: hashedFilename,
+            });
+        }
+        catch (err) {
+            await trx.rollback();
+            throw new AppError_1.default(err.message, 500);
+        }
+    }
+    async create(email, name, whatsapp, bio, trx) {
+        try {
+            const createdUser = await trx('users').insert({ email, name, whatsapp, bio }, 'id');
             const user_id = createdUser[0];
             return user_id;
         }

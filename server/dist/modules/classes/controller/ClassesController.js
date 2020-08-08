@@ -11,8 +11,8 @@ class ClassesController {
     async store(req, res) {
         try {
             const createClass = new CreateClassService_1.default();
-            await createClass.execute(req.body);
-            return res.status(201).json();
+            const user_id = await createClass.execute(req.body);
+            return res.status(201).json({ user_id });
         }
         catch (err) {
             throw new AppError_1.default(err.message, 500);

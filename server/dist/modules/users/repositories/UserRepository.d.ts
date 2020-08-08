@@ -9,6 +9,7 @@ interface User {
 declare class UserRepository {
     findByEmail(email: string): Promise<User | null>;
     findById(id: number): Promise<User | null>;
-    create(email: string, name: string, whatsapp: string, avatar: string, bio: string, trx: Knex.Transaction): Promise<number>;
+    updateAvatar(id: number, hashedFilename: string, trx: Knex.Transaction): Promise<void>;
+    create(email: string, name: string, whatsapp: string, bio: string, trx: Knex.Transaction): Promise<number>;
 }
 export default UserRepository;
