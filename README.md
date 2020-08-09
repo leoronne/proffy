@@ -106,11 +106,11 @@ Remember to run the migrations on the server dir using `npm run knex:migrate` or
 
 <br>
 
-<strong>Note: you need to create a .env file on the server directory based on the [example file](<https://github.com/leoronne/proffy/blob/master/server/.env%20(example).txt>).
+<strong>Note: you need to create a .env file on the server directory based on the [example file](<https://github.com/leoronne/proffy/blob/master/server/.env%20(example).txt>).</strong>
 
 <br>
 
-# Issues :bug:
+## Issues :bug:
 
 Feel free to **file a new issue**, if you find any, with a respective title and description on the the [Proffy](https://github.com/leoronne/proffy/issues) repository.
 
