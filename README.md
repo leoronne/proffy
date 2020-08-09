@@ -84,7 +84,7 @@ $ git clone https://github.com/leoronne/proffy.git
 
 <br>
 
-Then uou can install the application using `npm install` or `yarn install` on the client, server and mobile dir.
+Then you can install the application using `npm install` or `yarn install` on the client, server and mobile dir.
 
 <br>
 
