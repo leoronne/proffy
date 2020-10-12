@@ -118,7 +118,7 @@ Feel free to **file a new issue**, if you find any, with a respective title and 
 
 ## Contributing 🤔
 
-Please read [CONTRIBUTING](https://github.com/leoronne/twitter-ui-clone/blob/master/CONTRIBUTING.md) for details on code of conduct, and the process for submitting pull requests to the project.
+Please read [CONTRIBUTING](https://github.com/leoronne/proffy/blob/master/CONTRIBUTING.md) for details on code of conduct, and the process for submitting pull requests to the project.
 
 <br>
 
@@ -126,7 +126,7 @@ Please read [CONTRIBUTING](https://github.com/leoronne/twitter-ui-clone/blob/mas
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-- **[MIT license](https://github.com/leoronne/twitter-ui-clone/blob/master/LICENSE)**
+- **[MIT license](https://github.com/leoronne/proffy/blob/master/LICENSE)**
 - Copyright 2020 © <a href="https://github.com/leoronne" target="_blank">Leonardo Ronne</a>.
 
 ##
