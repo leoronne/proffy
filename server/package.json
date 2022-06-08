@@ -8,9 +8,8 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "start": "node -r ./tsconfig-paths-bootstrap.js dist/server.js",
-    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
-    "knex:migrate:undo": "knex --knexfile knexfile.ts migrate:rollback",
-    "knex:seed": "knex --knexfile knexfile.ts seed:run",
+    "knex:migrate": "knex --knexfile src/knexfile.ts migrate:latest",
+    "knex:migrate:undo": "knex --knexfile src/knexfile.ts migrate:rollback",
     "build": "tsc"
   },
   "dependencies": {
@@ -48,6 +47,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.2",
     "prettier": "^2.0.5",
+    "ts-loader": "^9.3.0",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.7"

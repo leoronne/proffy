@@ -14,7 +14,7 @@ class ClassesController {
       const user_id = await createClass.execute(req.body);
 
       return res.status(201).json({user_id});
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -27,7 +27,7 @@ class ClassesController {
       const classes = await findClass.execute(week_day as string, subject as string, time as string);
 
       return res.status(200).json({classes});
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -39,7 +39,7 @@ class ClassesController {
       const subjects = await findClass.getSubjects();
 
       return res.status(200).json({subjects});
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

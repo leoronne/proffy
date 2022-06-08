@@ -33,7 +33,7 @@ class ClassesRepository {
       const class_id = classes[0];
 
       return class_id;
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }
@@ -51,7 +51,7 @@ class ClassesRepository {
       });
 
       return await trx('class_schedule').insert(classSchedule);
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }
@@ -77,7 +77,7 @@ class ClassesRepository {
         };
       });
       return newClass;
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -91,7 +91,7 @@ class ClassesRepository {
       });
 
       return subArrat;
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

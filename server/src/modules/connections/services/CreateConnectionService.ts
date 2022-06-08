@@ -25,7 +25,7 @@ class CreateConnectionService {
       await connectionsRepo.createConnection(user_id, trx);
 
       return await trx.commit();
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }

@@ -7,7 +7,7 @@ class ConnectionsRepository {
   public async createConnection(user_id: number, trx: Knex.Transaction): Promise<void> {
     try {
       return await trx('connections').insert({ user_id });
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }
@@ -20,7 +20,7 @@ class ConnectionsRepository {
       const { total } = connections[0];
 
       return Number(total);
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

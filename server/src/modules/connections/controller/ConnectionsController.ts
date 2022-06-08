@@ -13,7 +13,7 @@ class ConnectionsController {
       await createConnection.execute(req.body);
 
       return res.status(201).json();
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -25,7 +25,7 @@ class ConnectionsController {
       const total = await connectionsRepo.count();
 
       return res.status(200).json({ total });
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

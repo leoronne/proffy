@@ -43,7 +43,7 @@ class CreateClassService {
       await trx.commit();
 
       return user_id;
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }

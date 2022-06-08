@@ -22,7 +22,7 @@ class FindClassesService {
       const timeMin = time ? ToMinutes(time) : 0;
 
       return await classRepo.filter(Number(week_day), subject ? subject : '', timeMin);
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

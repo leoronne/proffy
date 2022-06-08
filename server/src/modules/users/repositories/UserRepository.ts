@@ -17,7 +17,7 @@ class UserRepository {
       const user = await knex('users').where('email', email).first();
 
       return user;
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -27,7 +27,7 @@ class UserRepository {
       const user = await knex('users').where('id', id).first();
 
       return user;
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }
@@ -37,7 +37,7 @@ class UserRepository {
       return await trx('users').where('id', id).update({
         avatar: hashedFilename,
       });
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }
@@ -49,7 +49,7 @@ class UserRepository {
       const user_id = createdUser[0];
 
       return user_id;
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }

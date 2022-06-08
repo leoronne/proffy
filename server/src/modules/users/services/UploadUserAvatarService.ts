@@ -34,7 +34,7 @@ class UploadUserAvatarService {
       await userRepo.updateAvatar(Number(user_id), hashedFilename, trx)
 
       return await trx.commit();
-    } catch (err) {
+    } catch (err: any) {
       await trx.rollback();
       throw new AppError(err.message, 500);
     }
