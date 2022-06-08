@@ -1,4 +1,3 @@
-import { APP_API_URL, AWS_S3_BUCKET, AWS_S3_BUCKET_URL } from '@shared/utils/environment';
 import { Request, Response } from 'express';
 
 import AppError from '@shared/errors/AppError';
@@ -23,7 +22,7 @@ class UserController {
       });
 
       return res.status(201).json();
-    } catch (err) {
+    } catch (err: any) {
       throw new AppError(err.message, 500);
     }
   }

@@ -10,7 +10,7 @@
     "start": "node -r ./tsconfig-paths-bootstrap.js dist/server.js",
     "knex:migrate": "knex --knexfile src/knexfile.ts migrate:latest",
     "knex:migrate:undo": "knex --knexfile src/knexfile.ts migrate:rollback",
-    "build": "tsc"
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files"
   },
   "dependencies": {
     "-": "0.0.1",
@@ -31,6 +31,14 @@
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/cors": "^2.8.7",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.7",
@@ -50,6 +58,10 @@
     "ts-loader": "^9.3.0",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.9.7"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-typescript-metadata": "^0.3.1",
+    "typescript": "^3.9.7",
+    "tsconfig-paths": "^3.9.0"
   }
 }
