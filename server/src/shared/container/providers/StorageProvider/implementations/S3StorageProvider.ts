@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import aws, { S3 } from 'aws-sdk';
-import mime from 'mime';
+import { getType } from 'mime';
 import uploadConfig from '@config/upload';
 
 import { AWS_S3_BUCKET } from '@shared/utils/environment';
@@ -24,7 +24,7 @@ class S3StorageProvider implements IStorageProvider {
       encoding: null,
     });
 
-    const fileType = mime.getType(originalPath);
+    const fileType = getType(originalPath);
 
     if (!fileType) {
       throw new AppError('File does not exists', 500);

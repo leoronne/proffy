@@ -18,6 +18,7 @@ class UserController {
 
       await uploadAvatar.execute({
         user_id: id,
+        //@ts-ignore
         filename: req.file.filename,
       });
 
