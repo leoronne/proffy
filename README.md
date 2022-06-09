@@ -37,8 +37,6 @@ Proffy is a simple project made to connect teachers to students, the users can r
 
 It was idealized by [Rocketseat](https://github.com/Rocketseat)'s Next Level Week #2.
 
-<br>
-
 Deployed [here](https://proffy.ronne.dev).
 
 <br>
